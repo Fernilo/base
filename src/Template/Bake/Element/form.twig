@@ -1,0 +1,19 @@
+{% set fields = Bake.filterFields(fields, schema, modelObject) %}
+<?= $this->Form->create(${{ singularVar }}, ['class' => 'form-horizontal']) ?>
+<div class="card-body">
+	{% for field in fields %}
+		{% if field not in primaryKey %}
+			{% if loop.index is divisible by(2) %} <!-- Algo --> {% endif %}
+			<div class="form-group">
+				<label for="{{ field }}" class="control-label">{{ field }}</label>
+				<?= $this->Form->control('{{ field }}', ['class' => 'form-control', 'label' => false, 'required' => true]); ?>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>
+
+<div class="card-footer">
+	<?= $this->Form->button(__('Guardar'), ["class" => "btn btn-primary float-right"]) ?>
+	<?= $this->Html->link('Cancelar', ['action' => 'index'], ['class' => 'btn btn-light']); ?>
+</div>
+<?= $this->Form->end() ?>
