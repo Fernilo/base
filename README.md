@@ -4,7 +4,7 @@
 
 
 Proyecto creado con  [CakePHP](https://cakephp.org) 3.8.
-Versión de PHP recomendada 7.2
+Versión de PHP recomendada 7.222222
 
 ## Instalación
 
